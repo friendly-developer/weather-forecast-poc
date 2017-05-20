@@ -10,7 +10,7 @@
   - Run ```gulp serve``` in the same instance.
   - Server should be up and running and also listening for changes
   - Use _Ctrl + C_ to exit from the application
-  - This Application is also available on [this]() link.
+  - To deploy the application run `gulp html` command and the application will be packed
   
 
 ## Steps to test the application
