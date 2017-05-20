@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>weather forecast poc</title>
+
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="styles/vendor.css">
+
+  <link rel="stylesheet" href="styles/main.css">
+
+</head>
+<body>
+  <!--[if IE]>
+  <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+
+
+  <header class="header">
+    <h3 class="text-muted">weather forecast poc</h3>
+  </header>
+
+  <div class="container">
+
+    <div class="jumbotron">
+      <h1 id="selected-city" class="city">Loading..</h1>
+      <p class="lead" >Today's temperature is <span id="present-day-temp">Loading..</span>°C</p>
+      <div class="future-data"><span id="future1">Loading..</span>°C</div>
+      <div class="future-data"><span id="future2">Loading..</span>°C</div>
+      <div class="future-data"><span id="future3">Loading..</span>°C</div>
+      <p><a class="btn btn-lg btn-success" id ="reload" href="#">Refresh</a></p>
+      <div class ="display-none error" id="error">Something went wrong. Please try again later.</div>
+    </div>
+
+
+  </div>
+
+  <footer class="footer">
+    <p>Powered by weatherApi</p>
+  </footer>
+
+
+
+  <script>
+  (function(b, o, i, l, e, r) {
+  b.GoogleAnalyticsObject = l;
+  b[l] ||
+    (b[l] = function() {
+      (b[l].q = b[l].q || []).push(arguments);
+    });
+  b[l].l = +new Date();
+  e = o.createElement(i);
+  r = o.getElementsByTagName(i)[0];
+  e.src = 'https://www.google-analytics.com/analytics.js';
+  r.parentNode.insertBefore(e, r);
+})(window, document, 'script', 'ga');
+ga('create', 'UA-90944339-1');
+ga('send', 'pageview');
+</script>
+
+  <script src="scripts/vendor.js"></script>
+
+  <script src="scripts/plugins.js"></script>
+
+  <script src="scripts/main.js"></script>
+</body>
+</html>
