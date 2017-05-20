@@ -75,9 +75,13 @@
    * Call to fetch data from Open Weather map
    */
   const generateWeatherData = ({ place = 'Chennai', cntry = 'IN' }) => {
-    $.ajax(
-      `http://api.openweathermap.org/data/2.5/forecast?q=${place},${cntry}&units=metric&cnt=25&appid=e83c0a3c38b673ca782b7dd77881c95b`
-    )
+    let url;
+    if (location.protocol === 'http:') {
+      url = `http://api.openweathermap.org/data/2.5/forecast?q=${place},${cntry}&units=metric&cnt=25&appid=e83c0a3c38b673ca782b7dd77881c95b`;
+    } else {
+      url = `https://api.openweathermap.org/data/2.5/forecast?q=${place},${cntry}&units=metric&cnt=25&appid=e83c0a3c38b673ca782b7dd77881c95b`;
+    }
+    $.ajax(url)
       .done(resp => {
         if (!checkVaildResponse(resp)) {
           $('#error').removeClass('display-none');

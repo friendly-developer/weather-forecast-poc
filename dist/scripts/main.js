@@ -78,7 +78,13 @@
         _ref$cntry = _ref.cntry,
         cntry = _ref$cntry === undefined ? 'IN' : _ref$cntry;
 
-    $.ajax('http://api.openweathermap.org/data/2.5/forecast?q=' + place + ',' + cntry + '&units=metric&cnt=25&appid=e83c0a3c38b673ca782b7dd77881c95b').done(function (resp) {
+    var url = void 0;
+    if (location.protocol === 'http:') {
+      url = 'http://api.openweathermap.org/data/2.5/forecast?q=' + place + ',' + cntry + '&units=metric&cnt=25&appid=e83c0a3c38b673ca782b7dd77881c95b';
+    } else {
+      url = 'https://api.openweathermap.org/data/2.5/forecast?q=' + place + ',' + cntry + '&units=metric&cnt=25&appid=e83c0a3c38b673ca782b7dd77881c95b';
+    }
+    $.ajax(url).done(function (resp) {
       if (!checkVaildResponse(resp)) {
         $('#error').removeClass('display-none');
         return;
