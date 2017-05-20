@@ -1,16 +1,33 @@
 (function(window) {
+  /**
+   * filter data to get currentTime related values alone
+   */
   const filterData = (respList, crntTime) => {
     const list = respList;
     return list.filter(x => x.dt_txt.substr(-8) === crntTime);
   };
+
+  /**
+   * Iterate through response to see if all the data is available
+   * @return {Boolean}
+   */
   const checkVaildResponse = response => {
     return true;
   };
+
+  /**
+   * display the city provided in the response
+   *
+   */
   const displaySelectedCity = response => {
     const respData = response;
     const selCity = respData ? (respData.city ? respData.city.name : '') : '';
     document.getElementById('selected-city').innerText = selCity;
   };
+
+  /**
+   * iterate through the list to display weather based on index
+   */
   const displayWeatherData = list => {
     const $prsntDay = document.getElementById('present-day-temp');
     const day = {
@@ -37,6 +54,11 @@
       }
     });
   };
+  /**
+   * The function to handle dsuccess data
+   * @param  {Object} [response={ list:         [] }] [description]
+   * @return {[type]}             [description]
+   */
   const successCallBack = (response = { list: [] }) => {
     displaySelectedCity(response);
     const crntTime = response.list[0].dt_txt.substr(-8);
