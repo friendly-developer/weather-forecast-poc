@@ -13,5 +13,8 @@
         "dist/fonts/*"
       ]
     }
+  },
+  "devDependencies": {
+    "jasmine-core": "jasmine#^2.6.2"
   }
 }
