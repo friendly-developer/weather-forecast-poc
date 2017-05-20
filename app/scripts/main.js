@@ -12,7 +12,15 @@
    * @return {Boolean}
    */
   const checkVaildResponse = response => {
-    return true;
+    let isvalidresponse = true;
+    if (
+      !(response &&
+        response.list &&
+        response.list instanceof Array &&
+        response.list.length > 0)
+    )
+      isvalidresponse = false;
+    return isvalidresponse;
   };
 
   /**
@@ -45,8 +53,6 @@
       } else {
         ((v, i) => {
           const dt = new Date(v.dt_txt);
-          console.log(`future${i} ${v.dt_txt} ${dt}`);
-
           document.getElementById(
             `future${i}`
           ).innerText = `${day[dt.getDay()]} forecast is ${v.main.temp}`;
@@ -74,11 +80,15 @@
       `http://api.openweathermap.org/data/2.5/forecast?q=${place},${cntry}&units=metric&cnt=25&appid=e83c0a3c38b673ca782b7dd77881c95b`
     )
       .done(resp => {
-        if (!checkVaildResponse(resp)) return;
+        if (!checkVaildResponse(resp)) {
+          $('#error').removeClass('display-none');
+          return;
+        }
+        $('#error').addClass('display-none');
         successCallBack(resp);
       })
       .fail(function() {
-        alert('error');
+        $('#error').removeClass('display-none');
       });
   };
   /**

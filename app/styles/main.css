@@ -39,6 +39,14 @@ footer {
   border-top: 1px solid #e5e5e5;
   text-align: right;
 }
+.error {
+   background-color: rgba(224, 63, 63, 0.74);
+    color: #e3ece9;
+    font-size: 28px;
+}
+.display-none{
+  display: none;
+}
 
 /* Customize container */
 @media (min-width: 768px) {
